@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pasillo_londres/screens/recipes_screen.dart';
+import 'package:pasillo_londres/app/screens/recipes_controller.dart';
 
 class MyCard extends StatelessWidget {
-  const MyCard({Key? key, required this.title, required this.route})
-      : super(key: key);
+  const MyCard({
+    Key? key,
+    required this.title,
+    required this.route,
+    required this.categorie,
+  }) : super(key: key);
 
   final String title;
   final String route;
+  final String categorie;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,7 @@ class MyCard extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (_) => RecipesScreen(),
+          builder: (_) => RecipesController(categorie: categorie),
         ),
       ),
       child: Container(
@@ -43,7 +48,7 @@ class MyCard extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
+                child: Image.network(
                   route,
                   width: double.infinity,
                   fit: BoxFit.cover,

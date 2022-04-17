@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pasillo_londres/constants.dart';
+import 'package:pasillo_londres/app/constants.dart';
 
 class RecipeScreen extends StatelessWidget {
   const RecipeScreen({
@@ -28,7 +28,7 @@ class RecipeScreen extends StatelessWidget {
               children: [
                 Hero(
                   tag: heroTag,
-                  child: Image.asset(
+                  child: Image.network(
                     imageRoute,
                     width: double.infinity,
                     height: screenSize.height / 3,

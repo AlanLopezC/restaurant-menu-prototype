@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pasillo_londres/widgets/my_card.dart';
+import 'package:pasillo_londres/app/widgets/my_card.dart';
 
 class MyGrid extends StatelessWidget {
   const MyGrid({

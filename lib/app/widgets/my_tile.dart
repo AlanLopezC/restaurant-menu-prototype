@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pasillo_londres/screens/recipe_screen.dart';
+import 'package:pasillo_londres/app/screens/recipe_screen.dart';
 
 class MyTile extends StatelessWidget {
   const MyTile({
@@ -7,12 +7,16 @@ class MyTile extends StatelessWidget {
     required this.imageRoute,
     required this.title,
     required this.description,
+    required this.price,
+    required this.ingredients,
     required this.heroTag,
   }) : super(key: key);
 
   final String imageRoute;
   final String title;
   final String description;
+  final String price;
+  final List<dynamic> ingredients;
   final int heroTag;
 
   @override
@@ -26,7 +30,7 @@ class MyTile extends StatelessWidget {
           builder: (_) => RecipeScreen(
             imageRoute: imageRoute,
             description: description,
-            ingredients: const ["1 masa", "1 kilo de tomate", "Queso"],
+            ingredients: ingredients.map((s) => s.toString()).toList(),
             heroTag: heroTag,
           ),
         ),
@@ -68,7 +72,7 @@ class MyTile extends StatelessWidget {
                     const BorderRadius.vertical(top: Radius.circular(10)),
                 child: Hero(
                   tag: heroTag,
-                  child: Image.asset(
+                  child: Image.network(
                     imageRoute,
                     width: double.infinity,
                     fit: BoxFit.cover,

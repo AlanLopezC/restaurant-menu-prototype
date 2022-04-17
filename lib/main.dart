@@ -3,8 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pasillo_londres/screens/drawer_view.dart';
-import 'package:pasillo_londres/screens/home_screen.dart';
+import 'package:pasillo_londres/app/constants.dart';
+import 'package:pasillo_londres/app/screens/drawer_view.dart';
+import 'package:pasillo_londres/app/screens/home_controller.dart';
 
 Future<void> main() async {
   const firebaseConfig = FirebaseOptions(
@@ -25,14 +26,6 @@ Future<void> main() async {
   }
 
   runApp(
-    // MultiProvider(
-    //   providers: [
-    //     // Provider(
-    //     //   create: (_) => DrawerControllerProvider(),
-    //     // ),
-    //   ],
-    //   child: const MyApp(),
-    // ),
     const MyApp(),
   );
 }
@@ -47,7 +40,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.loraTextTheme(),
-        primarySwatch: Colors.blue,
+        primarySwatch: const MaterialColor(0XFFFFFFFF, colors),
+        primaryColor: Colors.white,
+        backgroundColor: Colors.white,
       ),
       home: const MyHome(),
     );
@@ -76,7 +71,7 @@ class MyHome extends StatelessWidget {
           ),
         ),
         slider: const DrawerView(),
-        child: HomeScreen(),
+        child: const HomeController(),
       ),
     );
   }
