@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pasillo_londres/app/screens/drawer_view.dart';
 import 'package:pasillo_londres/app/screens/home_controller.dart';
 
@@ -36,7 +35,7 @@ class MyApp extends StatelessWidget {
       title: 'Pasillo Londres',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // textTheme: GoogleFonts.loraTextTheme(),
+        fontFamily: "Lora",
         primaryColor: Colors.white,
         backgroundColor: Colors.black,
       ),
@@ -50,24 +49,25 @@ class MyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SliderDrawer(
         sliderOpenSize: 150,
         appBar: SliderAppBar(
           drawerIconSize: 22,
           appBarHeight: 40,
-          appBarPadding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          appBarPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           appBarColor: Colors.white,
           title: Text(
             "Pasillo Londres ",
-            style: GoogleFonts.lora(
+            style: TextStyle(
+              // fontFamily: "Domine",
               fontSize: 20,
               fontWeight: FontWeight.w500,
             ),
           ),
         ),
-        slider: const DrawerView(),
-        child: const HomeController(),
+        slider: DrawerView(),
+        child: HomeController(),
       ),
     );
   }

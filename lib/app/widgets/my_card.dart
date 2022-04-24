@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pasillo_londres/app/screens/drinks_controller.dart';
 import 'package:pasillo_londres/app/screens/recipes_controller.dart';
 
@@ -91,9 +90,10 @@ class MyCard extends StatelessWidget {
                   child: Text(
                     title,
                     textAlign: TextAlign.right,
-                    style: GoogleFonts.poppins(
+                    style: const TextStyle(
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w500,
                       fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w600,
                       fontSize: 12,
                     ),
                   ),

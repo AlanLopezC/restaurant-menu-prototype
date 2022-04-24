@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 class RecipeScreen extends StatelessWidget {
   const RecipeScreen({
+    required this.title,
     required this.imageRoute,
     required this.description,
     required this.ingredients,
-    required this.heroTag,
     Key? key,
   }) : super(key: key);
 
+  final String title;
   final String imageRoute;
   final String description;
   final List<String> ingredients;
-  final int heroTag;
 
   final String bullet = "  \u2022 ";
 
@@ -36,21 +36,28 @@ class RecipeScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "Descripción",
-                        style: TextStyle(
-                          fontSize: 18,
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       const SizedBox(height: 15),
                       Text(
                         description,
+                        style: const TextStyle(
+                          fontSize: 13,
+                          fontStyle: FontStyle.italic,
+                          // fontWeight: FontWeight.w300,
+                        ),
                       ),
                       const SizedBox(height: 15),
                       const Text(
                         "Ingredientes",
                         style: TextStyle(
                           fontSize: 18,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       const SizedBox(height: 15),
@@ -58,8 +65,12 @@ class RecipeScreen extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: ingredients.length,
                         physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) =>
-                            Text(bullet + ingredients[index]),
+                        itemBuilder: (context, index) => Text(
+                          bullet + ingredients[index],
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
                       ),
                     ],
                   ),

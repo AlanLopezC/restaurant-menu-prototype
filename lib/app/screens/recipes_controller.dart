@@ -30,7 +30,6 @@ class RecipesController extends StatelessWidget {
           );
         }
         List<MyTile> recipesTiles = [];
-        int i = 0;
         for (var data in snapshot.data!) {
           recipesTiles.add(
             MyTile(
@@ -41,7 +40,6 @@ class RecipesController extends StatelessWidget {
                   ? "assets/logo/2.png"
                   : "assets/images/$categorie/${data["titulo"].toString().toUpperCase()}.jpeg",
               ingredients: data["ingredientes"],
-              heroTag: i++,
             ),
           );
         }

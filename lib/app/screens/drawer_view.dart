@@ -74,8 +74,8 @@ class DrawerView extends StatelessWidget {
             Image.asset(
               "assets/logo/1.png",
               color: Colors.black,
-              cacheHeight: 150,
-              cacheWidth: 150,
+              cacheHeight: 200,
+              cacheWidth: 200,
             ),
           ],
         ),

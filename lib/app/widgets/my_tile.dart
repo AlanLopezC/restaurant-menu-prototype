@@ -9,7 +9,6 @@ class MyTile extends StatelessWidget {
     required this.description,
     required this.price,
     required this.ingredients,
-    required this.heroTag,
   }) : super(key: key);
 
   final String imageRoute;
@@ -17,7 +16,6 @@ class MyTile extends StatelessWidget {
   final String description;
   final String price;
   final List<dynamic> ingredients;
-  final int heroTag;
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +24,10 @@ class MyTile extends StatelessWidget {
         context,
         MaterialPageRoute(
           builder: (_) => RecipeScreen(
+            title: title,
             imageRoute: imageRoute,
             description: description,
             ingredients: ingredients.map((s) => s.toString()).toList(),
-            heroTag: heroTag,
           ),
         ),
       ),
@@ -87,7 +85,7 @@ class MyTile extends StatelessWidget {
                         title,
                         style: const TextStyle(
                           fontSize: 14,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       Text(
