@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pasillo_londres/app/constants.dart';
 import 'package:pasillo_londres/app/widgets/my_card.dart';
 import 'package:pasillo_londres/app/widgets/my_grid.dart';
 
@@ -21,7 +20,7 @@ class HomeView extends StatelessWidget {
       color: Colors.white,
       child: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -29,7 +28,9 @@ class HomeView extends StatelessWidget {
                 padding: EdgeInsets.all(10),
                 child: Text(
                   "Comida",
-                  style: kTextStyle,
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
                 ),
               ),
               MyGrid(list: foodList),
@@ -37,7 +38,9 @@ class HomeView extends StatelessWidget {
                 padding: EdgeInsets.all(10),
                 child: Text(
                   "Bebidas",
-                  style: kTextStyle,
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
                 ),
               ),
               MyGrid(list: drinkList),

@@ -1,23 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pasillo_londres/app/screens/home_view.dart';
 import 'package:pasillo_londres/app/widgets/my_card.dart';
 import 'package:pasillo_londres/data/datasources/firebase_firestore_impl.dart';
 
-class HomeController extends StatefulWidget {
+class HomeController extends StatelessWidget {
   const HomeController({Key? key}) : super(key: key);
 
-  @override
-  State<HomeController> createState() => _HomeControllerState();
-}
-
-class _HomeControllerState extends State<HomeController> {
   Future<List<Map<String, dynamic>>?> fetchCategories(
       BuildContext context) async {
-    try {
-      return await MyFirestore.fetchCategories();
-    } catch (e) {
-      print(e);
-    }
+    return await MyFirestore.fetchCategories();
   }
 
   @override
@@ -27,9 +19,9 @@ class _HomeControllerState extends State<HomeController> {
       builder: (context, AsyncSnapshot<List<Map<String, dynamic>>?> snapshot) {
         if (!snapshot.hasData) {
           return const Center(
-            child: CircularProgressIndicator(
-                // color: kPrimaryColor,
-                ),
+            child: CupertinoActivityIndicator(
+              color: Colors.black,
+            ),
           );
         }
 
@@ -40,16 +32,18 @@ class _HomeControllerState extends State<HomeController> {
             foodList.add(
               MyCard(
                 title: data["titulo"],
-                route: data["imagen"],
+                route: "assets/images/${data["categoria"]}/cat.jpeg",
                 categorie: data["categoria"],
+                isFood: data["isFood"],
               ),
             );
           } else {
             drinkList.add(
               MyCard(
                 title: data["titulo"],
-                route: data["imagen"],
+                route: "assets/images/bebidas/${data["categoria"]}.jpeg",
                 categorie: data["categoria"],
+                isFood: data["isFood"],
               ),
             );
           }

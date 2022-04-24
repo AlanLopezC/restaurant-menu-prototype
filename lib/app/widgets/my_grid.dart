@@ -22,10 +22,7 @@ class MyGrid extends StatelessWidget {
       ),
       itemCount: list.length,
       itemBuilder: (BuildContext ctx, index) {
-        return Container(
-          alignment: Alignment.center,
-          child: list[index],
-        );
+        return list[index];
       },
     );
   }

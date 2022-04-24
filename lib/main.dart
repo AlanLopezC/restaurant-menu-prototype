@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pasillo_londres/app/constants.dart';
 import 'package:pasillo_londres/app/screens/drawer_view.dart';
 import 'package:pasillo_londres/app/screens/home_controller.dart';
 
@@ -25,9 +24,7 @@ Future<void> main() async {
     await Firebase.initializeApp();
   }
 
-  runApp(
-    const MyApp(),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -39,10 +36,9 @@ class MyApp extends StatelessWidget {
       title: 'Pasillo Londres',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.loraTextTheme(),
-        primarySwatch: const MaterialColor(0XFFFFFFFF, colors),
+        // textTheme: GoogleFonts.loraTextTheme(),
         primaryColor: Colors.white,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
       ),
       home: const MyHome(),
     );
@@ -59,8 +55,8 @@ class MyHome extends StatelessWidget {
         sliderOpenSize: 150,
         appBar: SliderAppBar(
           drawerIconSize: 22,
-          appBarHeight: 44,
-          appBarPadding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+          appBarHeight: 40,
+          appBarPadding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
           appBarColor: Colors.white,
           title: Text(
             "Pasillo Londres ",

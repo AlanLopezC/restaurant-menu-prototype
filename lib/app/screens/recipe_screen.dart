@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pasillo_londres/app/constants.dart';
 
 class RecipeScreen extends StatelessWidget {
   const RecipeScreen({
@@ -26,14 +25,11 @@ class RecipeScreen extends StatelessWidget {
           children: [
             Column(
               children: [
-                Hero(
-                  tag: heroTag,
-                  child: Image.network(
-                    imageRoute,
-                    width: double.infinity,
-                    height: screenSize.height / 3,
-                    fit: BoxFit.cover,
-                  ),
+                Image.asset(
+                  imageRoute,
+                  width: double.infinity,
+                  height: screenSize.height * 2 / 5,
+                  fit: BoxFit.cover,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(14.0),
@@ -42,7 +38,9 @@ class RecipeScreen extends StatelessWidget {
                     children: [
                       const Text(
                         "Descripción",
-                        style: kTextStyle,
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
                       ),
                       const SizedBox(height: 15),
                       Text(
@@ -51,7 +49,9 @@ class RecipeScreen extends StatelessWidget {
                       const SizedBox(height: 15),
                       const Text(
                         "Ingredientes",
-                        style: kTextStyle,
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
                       ),
                       const SizedBox(height: 15),
                       ListView.builder(

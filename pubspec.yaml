@@ -41,6 +41,10 @@ dependencies:
   firebase_core: ^1.14.1
   cloud_firestore: ^3.1.12
   firebase_storage: ^10.2.12
+  cached_network_image: ^3.2.0
+  url_launcher: ^6.1.0
+  whatsapp_unilink: ^2.0.1+1
+  firebase_performance: ^0.8.0+10
 
 dev_dependencies:
   flutter_test:
@@ -55,8 +59,15 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
-  #   - images/a_dot_ham.jpeg
+    - assets/logo/
+    - assets/images/bebidas/
+    - assets/images/baggels/
+    - assets/images/bisquets/
+    - assets/images/bowls/
+    - assets/images/chilaquiles/
+    - assets/images/crossaints/
+    - assets/images/toasts/
+    - assets/images/waffles/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -69,12 +80,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Sedan
-      fonts:
-        - asset: assets/fonts/Sedan_italica_Std.otf
-        - asset: assets/fonts/Sedan_Redonda_Std.otf
-        - asset: assets/fonts/Sedan_Versalitas_Std.otf
+  # fonts:
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

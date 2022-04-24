@@ -21,8 +21,6 @@ class MyTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final screenSize = MediaQuery.of(context).size;
-
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
@@ -70,13 +68,10 @@ class MyTile extends StatelessWidget {
                 // borderRadius: BorderRadius.circular(10),
                 borderRadius:
                     const BorderRadius.vertical(top: Radius.circular(10)),
-                child: Hero(
-                  tag: heroTag,
-                  child: Image.network(
-                    imageRoute,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
+                child: Image.asset(
+                  imageRoute,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -85,12 +80,23 @@ class MyTile extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        "\$" + price,
+                        style: const TextStyle(
+                          fontSize: 13,
+                        ),
+                      ),
+                    ],
                   ),
                   Text(
                     description,

@@ -19,7 +19,7 @@ abstract class MyFirestore {
         return docs;
       }
     } catch (e) {
-      print(e);
+      // print(e);
     }
     return null;
   }
@@ -31,5 +31,10 @@ abstract class MyFirestore {
   static Future<List<Map<String, dynamic>>?> fetchPlatillos(
       String categoria) async {
     return fetchDocs("categorias/$categoria/platillos");
+  }
+
+  static Future<List<Map<String, dynamic>>?> fetchBebidas(
+      String categoria) async {
+    return fetchDocs("categorias/$categoria/lista");
   }
 }
