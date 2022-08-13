@@ -89,7 +89,7 @@ class MyTile extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "\$" + price,
+                        "\$ $price",
                         style: const TextStyle(
                           fontSize: 13,
                         ),

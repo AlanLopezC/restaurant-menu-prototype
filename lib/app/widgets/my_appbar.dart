@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget {
-  const MyAppBar({Key? key}) : super(key: key);
+  const MyAppBar({Key? key, this.onTap}) : super(key: key);
+
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class MyAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
-            onTap: () => Navigator.pop(context),
+            onTap: onTap ?? () => Navigator.pop(context),
             child: const Icon(
               Icons.arrow_back_ios_new_rounded,
               size: 16,

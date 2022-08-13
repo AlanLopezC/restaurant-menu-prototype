@@ -1,9 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
+import 'package:pasillo_londres/app/screens/admin_page.dart';
 import 'package:pasillo_londres/app/screens/drawer_view.dart';
 import 'package:pasillo_londres/app/screens/home_controller.dart';
+import 'package:provider/provider.dart';
+
+import 'bloc/survey/survey_bloc.dart';
 
 Future<void> main() async {
   const firebaseConfig = FirebaseOptions(
@@ -23,7 +29,16 @@ Future<void> main() async {
     await Firebase.initializeApp();
   }
 
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        BlocProvider<SurveyBloc>(
+          create: (BuildContext context) => SurveyBloc(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -33,13 +48,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pasillo Londres',
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('es', 'MX'),
+      ],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "Lora",
         primaryColor: Colors.white,
         backgroundColor: Colors.black,
       ),
-      home: const MyHome(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const MyHome(),
+        "/admin33": (context) => const AdminPage(),
+      },
     );
   }
 }

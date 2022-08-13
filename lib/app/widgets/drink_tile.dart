@@ -23,8 +23,8 @@ class DrinkTile extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(title),
-              Text("\$" + price),
+              Flexible(child: Text(title)),
+              Text("\$$price"),
             ],
           ),
           description != null ? Text(description!) : const SizedBox(),

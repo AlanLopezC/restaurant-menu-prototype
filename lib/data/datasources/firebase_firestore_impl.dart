@@ -1,12 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 
 abstract class MyFirestore {
   static Future<List<Map<String, dynamic>>?> fetchDocs(String route) async {
-    final _firestore = FirebaseFirestore.instance;
+    final firestore = FirebaseFirestore.instance;
     QuerySnapshot<Map<String, dynamic>> querySnapshot;
     List<Map<String, dynamic>>? docs = [];
     try {
-      querySnapshot = await _firestore
+      querySnapshot = await firestore
           .collection(route)
           // .where("nombre", isEqualTo: nombre.toUpperCase())
           // .orderBy("fecha")
@@ -19,7 +20,7 @@ abstract class MyFirestore {
         return docs;
       }
     } catch (e) {
-      // print(e);
+      debugPrint(e.toString());
     }
     return null;
   }
@@ -36,5 +37,27 @@ abstract class MyFirestore {
   static Future<List<Map<String, dynamic>>?> fetchBebidas(
       String categoria) async {
     return fetchDocs("categorias/$categoria/lista");
+  }
+
+  static Future<int> sendSurvey({
+    required Map<String, dynamic> document,
+    required String cellphone,
+  }) async {
+    final firestore = FirebaseFirestore.instance;
+
+    final ref = firestore.doc("survey/$cellphone");
+
+    if ((await ref.get()).exists) {
+      return -1;
+    }
+
+    try {
+      await ref.set(document);
+      return 0;
+    } catch (e) {
+      debugPrint("Hubo un error al subir la encuesta");
+      debugPrint(e.toString());
+      return -2;
+    }
   }
 }

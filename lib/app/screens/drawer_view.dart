@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pasillo_londres/app/screens/survey_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 
@@ -30,6 +31,8 @@ class DrawerView extends StatelessWidget {
                   const SizedBox(height: 20),
                   TextButton(
                     onPressed: () {},
+                    // onPressed: () =>
+                    //     Navigator.of(context).pushReplacementNamed("/admin33"),
                     child: const Text(
                       'Menú secreto',
                       style: TextStyle(
@@ -39,7 +42,12 @@ class DrawerView extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const SurveyScreen(),
+                      ),
+                    ),
                     child: const Text(
                       'Encuesta',
                       style: TextStyle(

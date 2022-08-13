@@ -15,7 +15,7 @@ class MyGrid extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 200,
+        maxCrossAxisExtent: 220,
         childAspectRatio: 3 / 2,
         crossAxisSpacing: 4,
         mainAxisSpacing: 20,
