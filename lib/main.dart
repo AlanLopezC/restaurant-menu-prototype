@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
@@ -10,6 +11,9 @@ import 'package:pasillo_londres/app/screens/home_controller.dart';
 import 'package:provider/provider.dart';
 
 import 'bloc/survey/survey_bloc.dart';
+
+//flutter build web
+//firebase deploy --only hosting
 
 Future<void> main() async {
   const firebaseConfig = FirebaseOptions(
@@ -56,6 +60,9 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('es', 'MX'),
       ],
+      shortcuts: {
+        LogicalKeySet(LogicalKeyboardKey.space): const ActivateIntent(),
+      },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "Lora",

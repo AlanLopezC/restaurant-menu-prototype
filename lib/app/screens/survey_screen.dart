@@ -42,7 +42,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color(0xFF01369B),
+                        const Color.fromARGB(255, 12, 77, 198),
                       ),
                       padding: MaterialStateProperty.all<EdgeInsets>(
                         const EdgeInsets.symmetric(
