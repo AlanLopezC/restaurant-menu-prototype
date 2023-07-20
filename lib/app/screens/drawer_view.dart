@@ -8,7 +8,7 @@ class DrawerView extends StatelessWidget {
 
   Future<void> launchWhatsApp() async {
     const link = WhatsAppUnilink(
-      phoneNumber: '+52-(662)2752915',
+      phoneNumber: '', // insert phone number here
       text: "Hola, quiero hacer una reservación.",
     );
 
